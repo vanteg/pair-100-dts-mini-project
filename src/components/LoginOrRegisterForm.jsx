@@ -10,7 +10,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 const LoginOrRegisterForm = ({ loginOrRegister }) => {
   // menggunakan authstate dari firebase untuk mendapatkan user loading dan error
-  const [user, isLoading, error] = useAuthState(auth);
+  const [user, isLoading] = useAuthState(auth);
 
   const [credentials, setCredentials] = useState({
     email: "",
