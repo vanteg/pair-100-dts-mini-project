@@ -8,9 +8,15 @@ import {
 } from "../authentication/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
+// css
+import "./css/loginLogout.css";
+
+// import MUI
+import { Typography, TextField, Button } from "@mui/material";
+
 const LoginOrRegisterForm = ({ loginOrRegister }) => {
   // menggunakan authstate dari firebase untuk mendapatkan user loading dan error
-  const [user, isLoading, error] = useAuthState(auth);
+  const [user, isLoading] = useAuthState(auth);
 
   const [credentials, setCredentials] = useState({
     email: "",
@@ -63,7 +69,7 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
 
   return (
     <>
-      <div
+      {/* <div
         style={{
           display: "flex",
           flexDirection: "row ",
@@ -96,6 +102,57 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
           ) : (
             <></>
           )}
+        </div>
+      </div> */}
+
+      <div className="auth">
+        <div className="auth-top">
+          <img
+            src="https://assets.nflxext.com/ffe/siteui/vlv3/1ef84595-1fdb-4404-adac-15215ceeb3ae/b6b5f9a2-85ac-4ca3-a25f-261e0a853f51/SG-en-20220711-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+            alt="background"
+            className="auth-image"
+          />
+        </div>
+        <div className="auth-container">
+          <form>
+            <Typography variant="h2">
+              <strong>
+                {" "}
+                {loginOrRegister === "login" ? "Login" : "Register"}
+              </strong>
+            </Typography>{" "}
+            <TextField
+              type="email"
+              variant="outlined"
+              label="email or phone number"
+              className="auth-tf"
+              onChange={emailOnChangeHandler}
+            />
+            <TextField
+              type="password"
+              variant="outlined"
+              label="password"
+              className="auth-tf"
+              onChange={passwordOnChangeHandler}
+            />
+            <Button
+              variant="contained"
+              onClick={buttonLoginOrRegisterOnClickHandler}
+            >
+              {loginOrRegister === "login" ? "Login" : "Register"}
+            </Button>
+            {loginOrRegister === "login" ? (
+              <div>
+                <b>
+                  <Link to="/register">New to Netflix? Sign up now</Link>
+                </b>
+              </div>
+            ) : (
+              <b>
+                <Link to="/login">Login</Link>
+              </b>
+            )}
+          </form>
         </div>
       </div>
     </>

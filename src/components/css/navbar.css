@@ -1,0 +1,109 @@
+.nav{
+    color: #E5E5E5;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    /* background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%); */
+    background: rgb(0, 0, 0, 0.3);
+    /* animasi */
+    transition-timing-function: ease-in;
+    transition: all 1s;
+}
+
+.nav_black{
+    background-color: black;
+}
+
+.container{
+    padding: 0px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.left{
+    display: flex;
+    align-items: center;
+}
+
+.right{
+    display: flex;
+    align-items: center
+}
+
+.nav-img-profile,
+.nav-img-logo{
+    width: 36px;
+    height: 44px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.nav-img-logo{
+    margin-right: 10px;
+}
+
+.span-nav-menu{
+    margin-right: 10px;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.span-nav-menu:hover{
+    font-size: 20px;
+}
+
+.nav-icon {
+    margin: 0px 15px;
+    cursor: pointer;
+}
+
+.nav-option{
+    display: none;
+    background-color: black;
+    border-radius: 5px;
+}
+
+.drop-profile:hover .nav-option {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+
+.drop-profile {
+    margin: 0px 10px;
+}
+
+.nav-logout-text {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.nav-login{
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav-login:hover {
+    font-size: 20px;
+}
