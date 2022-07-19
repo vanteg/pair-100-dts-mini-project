@@ -28,7 +28,14 @@ root.render(
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
           <Route path="movie/:id" element={<DetailMovie />} />
-          <Route path="*" element={<div>404</div>} />
+          <Route
+            path="*"
+            element={
+              <div style={{ textAlign: "center" }}>
+                <h1>404 - There is Nothing Here</h1>
+              </div>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </Provider>

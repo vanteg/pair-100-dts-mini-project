@@ -67,6 +67,13 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
     return;
   }
 
+  const handleKeypress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      loginHandler();
+    }
+  };
+
   return (
     <>
       {/* <div
@@ -114,7 +121,7 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
           />
         </div>
         <div className="auth-container">
-          <form>
+          <form onKeyPress={handleKeypress}>
             <Typography variant="h2">
               <strong>
                 {" "}
