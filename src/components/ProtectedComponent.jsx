@@ -14,7 +14,8 @@ const ProtectedComponent = ({ children }) => {
   //   console.log(user.email);
 
   //   menggunakan useEffect untuk redirect ke halaman login jika user belum login
-  console.log(user);
+  // cek apakah user ada
+  // console.log(user);
   useEffect(() => {
     if (!user) {
       //   navigate("/login");

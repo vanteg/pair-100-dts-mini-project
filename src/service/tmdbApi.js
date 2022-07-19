@@ -23,6 +23,10 @@ export const tmdbApi = createApi({
       query: (id) =>
         `movie/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&page=1`,
     }),
+    movieLatest: builder.query({
+      query: () =>
+        `movie/latest?api_key=${process.env.REACT_APP_TMDB_API_KEY}&page=1`,
+    }),
   }),
 });
 
@@ -30,4 +34,5 @@ export const {
   useMoviesPopularQuery,
   useMovieNowPlayingQuery,
   useMovieDetailQuery,
+  useMovieLatestQuery,
 } = tmdbApi;

@@ -12,7 +12,7 @@ const DetailMovie = () => {
     <>
       <div>{loadData.original_title}</div>
       <div>{loadData.overview}</div>
-      <img src={`${urlImg}${loadData.backdrop_path}`} alt="poster" />
+      <img src={`${urlImg}${loadData?.backdrop_path}`} alt="poster" />
     </>
   );
 };

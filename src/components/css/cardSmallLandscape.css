@@ -1,8 +1,21 @@
+.title{
+    color: #E5E5E5;
+    width: 95px;
+    height: 31px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 31px;
+    margin: 0px 0px 0px 10px;
+}
+
 .imageContainer {
     position: relative;
     overflow: hidden;
     text-align: center;
-    max-width: 220px;
+    min-width: 200px;
+    max-width: 300px;
     margin-left: 0.5em;
 }
 
@@ -20,3 +33,7 @@ img {
     color: #fff;
 }
 
+.swiper-button-next,
+.swiper-button-prev{
+ color: grey !important;
+}

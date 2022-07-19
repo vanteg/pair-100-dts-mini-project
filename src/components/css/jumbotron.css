@@ -1,0 +1,45 @@
+.jumbotron {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.jumbotron-img{
+    width: 100%;
+    border-radius: 0px;
+}
+
+.jumbotron-inner{
+    display: flex;
+}
+
+.jumbotron-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(23, 33, 57, 1) 53%, rgba(180, 179, 178, 1) 100%);
+}
+
+.jumbotron-right {
+    display: flex;
+    align-items: center;
+    max-width: 75%;
+}
+
+.jumbotron-img{
+    width: 720px;
+}
+
+.jumbotron-title,
+.jumbotron-overview{
+    margin-left: 20px;
+    color: white;
+}
+
+.jumbotron-title{
+    font-size: 30px;
+    font-weight: bold;
+}
