@@ -1,5 +1,5 @@
 import React from "react";
-import { useMoviesPopularQuery } from "../service/tmdbApi";
+import { useMovieSimilarQuery } from "../service/tmdbApi";
 import { useNavigate } from "react-router-dom";
 import "./css/cardSmallLandscape.css";
 // Import Swiper React components
@@ -8,16 +8,17 @@ import { Navigation, Pagination, A11y } from "swiper";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 
-const MoviesPopular = (propsData) => {
-  const { data, isLoading, error } = useMoviesPopularQuery();
+const MovieSimilar = (props) => {
+  // ! sesuaikan dengan movie recomendation pake props dari detil movie
+  const { propsData } = props;
+
+  const { data, isLoading, error } = useMovieSimilarQuery(propsData);
   const navigate = useNavigate();
   const urlImg = "https://image.tmdb.org/t/p/original";
-
-  const imageOnClickHandler = (id) => {
+  const imageOnClickHandler = (propsData) => {
     if (propsData) {
-      navigate(`/movie/${id}`);
+      navigate(`/movie/${propsData}`);
     } else {
       alert("Please login first");
     }
@@ -45,6 +46,7 @@ const MoviesPopular = (propsData) => {
                   className="slide-img"
                 />
               )}
+
               <div className="imgTitle">{movie.original_title}</div>
             </div>
           </SwiperSlide>
@@ -59,7 +61,7 @@ const MoviesPopular = (propsData) => {
         <div>"isLoading...."</div>
       ) : (
         <div className="movie-list-container">
-          <p className="title">Popular</p>
+          <p className="title">Similiar</p>
           <Swiper
             modules={[Navigation, Pagination, A11y]}
             navigation
@@ -76,4 +78,4 @@ const MoviesPopular = (propsData) => {
   );
 };
 
-export default MoviesPopular;
+export default MovieSimilar;

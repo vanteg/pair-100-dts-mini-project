@@ -1,5 +1,5 @@
 import React from "react";
-import { useMoviesPopularQuery } from "../service/tmdbApi";
+import { useMovieRecommendationQuery } from "../service/tmdbApi";
 import { useNavigate } from "react-router-dom";
 import "./css/cardSmallLandscape.css";
 // Import Swiper React components
@@ -9,18 +9,19 @@ import { Navigation, Pagination, A11y } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const MovieRecomendation = (propsData) => {
+const MovieRecomendation = (props) => {
   // ! sesuaikan dengan movie recomendation pake props dari detil movie
-  const { data, isLoading, error } = useMoviesPopularQuery();
+  const { propsData } = props;
+
+  const { data, isLoading, error } = useMovieRecommendationQuery(propsData);
   const navigate = useNavigate();
   const urlImg = "https://image.tmdb.org/t/p/original";
-
-  const imageOnClickHandler = (id) => {
-    // if (propsData) {
-    navigate(`/movie/${id}`);
-    // } else {
-    //   alert("Please login first");
-    // }
+  const imageOnClickHandler = (propsData) => {
+    if (propsData) {
+      navigate(`/movie/${propsData}`);
+    } else {
+      alert("Please login first");
+    }
   };
 
   const loadData = isLoading
@@ -32,12 +33,21 @@ const MovieRecomendation = (propsData) => {
               className="imageContainer"
               onClick={() => imageOnClickHandler(movie.id)}
             >
-              <img
-                src={`${urlImg}${movie.backdrop_path}`}
-                alt="poster"
-                className="slide-img"
-              />
-              <div className="imgTitle">{movie.original_title}</div>
+              {movie.backdrop_path ? (
+                <img
+                  src={`${urlImg}${movie.poster_path}`}
+                  alt="poster"
+                  className="slide-img"
+                />
+              ) : (
+                <img
+                  src={process.env.PUBLIC_URL + "/img/netflix.jpg"}
+                  alt="poster"
+                  className="slide-img"
+                />
+              )}
+
+              {/* <div className="imgTitle">{movie.original_title}</div> */}
             </div>
           </SwiperSlide>
         );
@@ -51,7 +61,7 @@ const MovieRecomendation = (propsData) => {
         <div>"isLoading...."</div>
       ) : (
         <div className="movie-list-container">
-          <p className="title">Popular</p>
+          <p className="title">Recomendation</p>
           <Swiper
             modules={[Navigation, Pagination, A11y]}
             navigation
