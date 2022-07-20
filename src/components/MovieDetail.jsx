@@ -5,16 +5,15 @@ import { useNavigate, useParams } from "react-router-dom";
 import { auth } from "../authentication/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import NavBar from "./NavBar";
-import Jumbotron from "./Jumbotron";
-import "./css/detailmovie.css";
+import "./css/MovieDetail.css";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
 import { InfoOutlined, PlayArrow } from "@mui/icons-material";
-import { styled, useTheme } from "@mui/material/styles";
-import PopularMovies from "./PopularMovies";
+import { styled } from "@mui/material/styles";
+import MoviesPopular from "./MoviesPopular";
 import Footer from "./Footer";
 
 const ColorButton = styled(Button)(({ theme }) => ({
@@ -27,7 +26,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-const DetailMovie = (props) => {
+const MovieDetail = (props) => {
   const { id } = useParams();
   const urlImg = "https://image.tmdb.org/t/p/original";
   const { data, isLoading } = useMovieDetailQuery(id);
@@ -63,6 +62,8 @@ const DetailMovie = (props) => {
                   borderRadius: 0,
                   width: "35%",
                   top: { xs: "5%" },
+                  backgroundColor: "rgba(0,0,0,0.5)",
+                  padding: "20px",
                 }}
                 style={{
                   position: "absolute",
@@ -75,11 +76,14 @@ const DetailMovie = (props) => {
                   sx={{
                     fontFamily: "Inter",
                     fontWeight: "bold",
+                    color: "white",
                   }}
                 >
                   {loadData.original_title}
                 </Typography>
-                <Typography variant="caption">{loadData.overview}</Typography>
+                <Typography variant="caption" sx={{ color: "white" }}>
+                  {loadData.overview}
+                </Typography>
                 <div className="wrapperButton">
                   <Button
                     sx={{ backgroundColor: "#fff", color: "#000" }}
@@ -94,18 +98,12 @@ const DetailMovie = (props) => {
                 </div>
               </Box>
             </Container>
-            <Container component="div" sx={{ my: "2%", color: "#fff" }}>
+            {/* <Container component="div" sx={{ my: "2%", color: "#fff" }}>
               <Typography variant="h5">Description</Typography>
               <Typography variant="caption">{loadData.overview}</Typography>
-            </Container>
+            </Container> */}
             <Container>
-              <PopularMovies />
-              <PopularMovies />
-              <PopularMovies />
-              <PopularMovies />
-              <PopularMovies />
-              <PopularMovies />
-              <PopularMovies />
+              <MoviesPopular />
             </Container>
             <Container>
               <Footer />
@@ -119,4 +117,4 @@ const DetailMovie = (props) => {
   );
 };
 
-export default DetailMovie;
+export default MovieDetail;

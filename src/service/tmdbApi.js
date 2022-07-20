@@ -9,6 +9,10 @@ export const tmdbApi = createApi({
   endpoints: (builder) => ({
     moviesPopular: builder.query({
       query: () =>
+        `movie/popular?api_key=${process.env.REACT_APP_TMDB_API_KEY}&page=1`,
+    }),
+    moviesTopRated: builder.query({
+      query: () =>
         `movie/top_rated?api_key=${process.env.REACT_APP_TMDB_API_KEY}&page=1`,
     }),
     movieNowPlaying: builder.query({
@@ -35,4 +39,5 @@ export const {
   useMovieNowPlayingQuery,
   useMovieDetailQuery,
   useMovieLatestQuery,
+  useMoviesTopRatedQuery,
 } = tmdbApi;
