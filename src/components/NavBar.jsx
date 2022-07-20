@@ -31,7 +31,11 @@ const NavBar = (propsData) => {
       <div className={`nav ${show && "nav_black"}`}>
         <div className="container">
           <div className="left">
-            <img src="./img/navbar.png" alt="logo" className="nav-img-logo" />
+            <img
+              src={process.env.PUBLIC_URL + "/img/navbar.png"}
+              alt="logo"
+              className="nav-img-logo"
+            />
             <span className="span-nav-menu">Homepage</span>
             <span className="span-nav-menu">Series</span>
             <span className="span-nav-menu">Movies</span>
@@ -44,7 +48,7 @@ const NavBar = (propsData) => {
               <span>profile</span>
               <NotificationsIcon className="nav-icon" />
               <img
-                src="./img/ProfilePicture1.png"
+                src={process.env.PUBLIC_URL + "/img/ProfilePicture1.png"}
                 alt="logo"
                 className="nav-img-profile"
               />

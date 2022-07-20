@@ -7,7 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./containers/LoginPage";
 import RegisterPage from "./containers/RegisterPage";
 import ProtectedComponent from "./components/ProtectedComponent";
-import DetailMovie from "./components/DetailMovie";
+import MovieDetail from "./components/MovieDetail";
+import ProfilePage from "./components/ProfilePage";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
 
@@ -27,7 +28,8 @@ root.render(
           />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
-          <Route path="movie/:id" element={<DetailMovie />} />
+          <Route path="movie/:id" element={<MovieDetail />} />
+          <Route path="profile" element={<ProfilePage />} />
           <Route
             path="*"
             element={

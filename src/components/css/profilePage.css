@@ -1,0 +1,53 @@
+.profile-page{
+    background-color: rgb(16, 16, 16);
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.top{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.profile-item{
+    display: flex;
+    position: fixed;
+        top: 35%;
+        left: 30%;
+        text-align: center;
+        color: white;
+}
+
+.profile-img-logo{
+    margin-left:1em;
+    width: 36px;
+    height: 44px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.profile-box-img {
+    color: white;
+    margin-left: 1em;
+}
+
+.profile-img{
+    width: 100px;
+    /* margin-left: 1em; */
+}
+
+.profile-typo{
+    font-family: Inter;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 31px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #525253;
+}

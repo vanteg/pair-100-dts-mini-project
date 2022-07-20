@@ -10,7 +10,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-const PopularMovies = (propsData) => {
+const MoviesPopular = (propsData) => {
   const { data, isLoading, error } = useMoviesPopularQuery();
   const navigate = useNavigate();
   const urlImg = "https://image.tmdb.org/t/p/original";
@@ -32,7 +32,11 @@ const PopularMovies = (propsData) => {
               className="imageContainer"
               onClick={() => imageOnClickHandler(movie.id)}
             >
-              <img src={`${urlImg}${movie.backdrop_path}`} alt="poster" />
+              <img
+                src={`${urlImg}${movie.backdrop_path}`}
+                alt="poster"
+                className="slide-img"
+              />
               <div className="imgTitle">{movie.original_title}</div>
             </div>
           </SwiperSlide>
@@ -64,4 +68,4 @@ const PopularMovies = (propsData) => {
   );
 };
 
-export default PopularMovies;
+export default MoviesPopular;
