@@ -3,6 +3,7 @@ import "./css/navbar.css";
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { useNavigate } from "react-router-dom";
 import { logout } from "../authentication/firebase";
 import { auth } from "../authentication/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -17,6 +18,13 @@ const NavBar = (propsData) => {
       handleShow(true);
     } else handleShow(false);
   };
+
+  const navigate = useNavigate();
+  // onClick home
+  const handleHome = () => {
+    navigate("/");
+  };
+
   React.useEffect(() => {
     window.addEventListener("scroll", () => {
       checkScroll();
@@ -30,7 +38,7 @@ const NavBar = (propsData) => {
     <>
       <div className={`nav ${show && "nav_black"}`}>
         <div className="container">
-          <div className="left">
+          <div className="left" onClick={handleHome}>
             <img
               src={process.env.PUBLIC_URL + "/img/navbar.png"}
               alt="logo"
@@ -63,7 +71,7 @@ const NavBar = (propsData) => {
             </div>
           ) : (
             <div className="right">
-              <Link to="login" className="nav-login">
+              <Link to="profile" className="nav-login">
                 Login
               </Link>
             </div>

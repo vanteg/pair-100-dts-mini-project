@@ -32,11 +32,19 @@ const MoviesTopRated = (propsData) => {
               className="imageContainer"
               onClick={() => imageOnClickHandler(movie.id)}
             >
-              <img
-                src={`${urlImg}${movie.poster_path}`}
-                alt="poster"
-                className="slide-img"
-              />{" "}
+              {movie.backdrop_path ? (
+                <img
+                  src={`${urlImg}${movie.poster_path}`}
+                  alt="poster"
+                  className="slide-img"
+                />
+              ) : (
+                <img
+                  src={process.env.PUBLIC_URL + "/img/netflix.jpg"}
+                  alt="poster"
+                  className="slide-img"
+                />
+              )}
             </div>
           </SwiperSlide>
         );

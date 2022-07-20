@@ -28,7 +28,7 @@ const registerWithEmailAndPassword = async (email, password) => {
   // user otomatis sign in oleh firebase
   try {
     const getUser = await createUserWithEmailAndPassword(auth, email, password);
-    console.log("user yang tergis dan berhasil login adalah", getUser.user);
+    // console.log("user yang tergis dan berhasil login adalah", getUser.user);
   } catch (error) {
     console.log(error.code);
     console.log(error.message);
@@ -39,7 +39,7 @@ const registerWithEmailAndPassword = async (email, password) => {
 const loginWithEmailAndPassword = async (email, password) => {
   try {
     const userLogin = await signInWithEmailAndPassword(auth, email, password);
-    console.log("user yang berhasil login adalah", userLogin.user);
+    // console.log("user yang berhasil login adalah", userLogin.user);
   } catch (error) {
     console.log(error.code);
     console.log(error.message);
@@ -50,7 +50,7 @@ const loginWithEmailAndPassword = async (email, password) => {
 const logout = async () => {
   try {
     const logout = await signOut(auth);
-    console.log("user berhasil logout", logout);
+    // console.log("user berhasil logout", logout);
   } catch (error) {
     console.log(error.code);
     console.log(error.message);

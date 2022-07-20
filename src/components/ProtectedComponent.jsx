@@ -7,7 +7,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../authentication/firebase";
 
 // sloting children
-const ProtectedComponent = ({ children }) => {
+const ProtectedComponent = ({ children, login = true }) => {
   const navigate = useNavigate();
   const [user, isLoading] = useAuthState(auth);
   // cek user ada ga
@@ -17,11 +17,13 @@ const ProtectedComponent = ({ children }) => {
   // cek apakah user ada
   // console.log(user);
   useEffect(() => {
-    if (!user) {
-      //   navigate("/login");
-      return;
+    if (!user && login) {
+      navigate("/profile");
     }
-  }, [user, navigate]);
+    if (user && !login) {
+      navigate("/");
+    }
+  }, [user, navigate, login]);
   //   menggunakan loading biar halaman ga berkedip
   if (isLoading) {
     return;

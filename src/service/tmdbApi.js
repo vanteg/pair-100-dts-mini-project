@@ -31,6 +31,10 @@ export const tmdbApi = createApi({
       query: () =>
         `movie/latest?api_key=${process.env.REACT_APP_TMDB_API_KEY}&page=1`,
     }),
+    movieSimilar: builder.query({
+      query: (id) =>
+        `movie/${id}/similar?api_key=${process.env.REACT_APP_TMDB_API_KEY}&page=1`,
+    }),
   }),
 });
 
@@ -40,4 +44,6 @@ export const {
   useMovieDetailQuery,
   useMovieLatestQuery,
   useMoviesTopRatedQuery,
+  useMovieRecommendationQuery,
+  useMovieSimilarQuery,
 } = tmdbApi;

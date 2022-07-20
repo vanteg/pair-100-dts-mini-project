@@ -18,18 +18,39 @@ root.render(
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<App />} />
           <Route
-            path="/"
+            path="login"
             element={
-              <ProtectedComponent>
-                <App />
+              <ProtectedComponent login={false}>
+                <LoginPage />
               </ProtectedComponent>
             }
           />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="register" element={<RegisterPage />} />
-          <Route path="movie/:id" element={<MovieDetail />} />
-          <Route path="profile" element={<ProfilePage />} />
+          <Route
+            path="register"
+            element={
+              <ProtectedComponent login={false}>
+                <RegisterPage />
+              </ProtectedComponent>
+            }
+          />
+          <Route
+            path="movie/:id"
+            element={
+              <ProtectedComponent>
+                <MovieDetail />
+              </ProtectedComponent>
+            }
+          />
+          <Route
+            path="profile"
+            element={
+              <ProtectedComponent login={false}>
+                <ProfilePage />
+              </ProtectedComponent>
+            }
+          />
           <Route
             path="*"
             element={
